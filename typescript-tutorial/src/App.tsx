@@ -35,6 +35,7 @@ const App: React.FC = () => {
 
   const [todo, setTodo] = useState<string>("");
   const [ todos , setTodos] = useState<Todo[]>([]);
+  const [CompletedTodos, setCompletedTodos] = useState<Array<Todo>>([]);
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,7 +52,12 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading">Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd}/>
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          CompletedTodos={CompletedTodos}
+          setCompletedTodos={setCompletedTodos}
+        />
       {/* {todos.map((t) => (
         <li key={t.id}>{t.todo}</li>
       ))} */}
